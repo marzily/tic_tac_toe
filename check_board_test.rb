@@ -2,7 +2,6 @@ gem 'minitest'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './check_board'
-gem 'byebug'
 
 class CheckBoardTest < Minitest::Test
 
@@ -14,7 +13,7 @@ class CheckBoardTest < Minitest::Test
     ]
     @check = CheckBoard.new(board)
   end
-  
+
   def test_it_has_a_board
     assert @check.board.is_a?(Array)
   end

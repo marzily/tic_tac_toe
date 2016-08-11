@@ -40,8 +40,7 @@ private
     end
 
     def spaces_match?(section)
-      # bug here for test at line 56
-      section.all? {|space| space == "X" || space == "O"}
+      section.all? { |s| s == "X" } || section.all? { |s| s == "O" }
     end
 
     def iterate_over_col(i)

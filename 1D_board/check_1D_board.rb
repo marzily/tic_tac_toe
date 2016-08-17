@@ -14,7 +14,7 @@ class Check1DBoard
   end
 
   def winner
-    find_by_row
+    player = find_by_row || find_by_col
   end
 
   def find_by_row
@@ -29,6 +29,20 @@ class Check1DBoard
 
   def check_row(x, y)
     board[x..y].all? {|space| space == "O" || space == "X" }
+  end
+
+  def find_by_col
+    if col_match?(0, 3, 6)
+      board[0]
+    elsif col_match?(1, 4, 7)
+      board[1]
+    elsif col_match?(2, 5, 8)
+      board[2]
+    end
+  end
+
+  def col_match?(x, y, z)
+    board[x] == board[y] && board[y] == board[z]
   end
 
 

@@ -26,4 +26,14 @@ class Check1DBoardTest < Minitest::Test
     assert_equal "The winner is X", @check_board.message
   end
 
+  def test_it_finds_winner_by_column_O
+    i = 0
+    while i < @check_board.board.count
+      @check_board.board[i] = "O"
+      i += 3
+    end
+
+    assert_equal "The winner is O", @check_board.message
+  end
+
 end

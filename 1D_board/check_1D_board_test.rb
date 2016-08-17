@@ -1,4 +1,5 @@
 gem 'minitest'
+gem 'byebug'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './check_1D_board'
@@ -35,5 +36,17 @@ class Check1DBoardTest < Minitest::Test
 
     assert_equal "The winner is O", @check_board.message
   end
+
+  def test_it_finds_winner_by_column_X
+    i = 2
+    while i < @check_board.board.count
+      @check_board.board[i] = "X"
+      i += 3
+    end
+
+    assert_equal "The winner is X", @check_board.message
+  end
+
+
 
 end

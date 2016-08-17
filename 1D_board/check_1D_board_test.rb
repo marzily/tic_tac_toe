@@ -55,4 +55,12 @@ class Check1DBoardTest < Minitest::Test
     assert_equal "The winner is X", @check_board.message
   end
 
+  def test_it_finds_winner_by_positive_diag
+    @check_board.board[2] = "O"
+    @check_board.board[4] = "O"
+    @check_board.board[6] = "O"
+
+    assert_equal "The winner is O", @check_board.message
+  end
+
 end

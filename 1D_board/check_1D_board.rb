@@ -52,6 +52,8 @@ class Check1DBoard
     def find_by_diag
       if top_bottom_diag?
         board[0]
+      elsif bottom_top_diag?
+        board[2]
       end
     end
 
@@ -59,4 +61,7 @@ class Check1DBoard
       board[0] == board[4] && board[4] == board[8]
     end
 
+    def bottom_top_diag?
+      board[2] == board[4] && board[4] == board[6]
+    end
 end

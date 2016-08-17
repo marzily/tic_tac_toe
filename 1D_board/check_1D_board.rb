@@ -13,39 +13,39 @@ class Check1DBoard
     end
   end
 
-  def winner
-    find_by_row || find_by_col
-  end
+  private
 
-  def find_by_row
-    if check_row(0, 2)
-      board[0]
-    elsif check_row(3, 5)
-      board[3]
-    elsif check_row(6, 8)
-      board[6]
+    def winner
+      find_by_row || find_by_col
     end
-  end
 
-  def check_row(x, y)
-    board[x..y].all? {|space| space == "O" || space == "X" }
-  end
-
-  def find_by_col
-    if col_match?(0, 3, 6)
-      board[0]
-    elsif col_match?(1, 4, 7)
-      board[1]
-    elsif col_match?(2, 5, 8)
-      board[2]
+    def find_by_row
+      if row_match?(0, 2)
+        board[0]
+      elsif row_match?(3, 5)
+        board[3]
+      elsif row_match?(6, 8)
+        board[6]
+      end
     end
-  end
 
-  def col_match?(x, y, z)
-    if board[x] && board[y] && board[z]
-      board[x] == board[y] && board[y] == board[z]
+    def row_match?(x, y)
+      board[x..y].all? {|space| space == "O" || space == "X" }
     end
-  end
 
+    def find_by_col
+      if col_match?(0, 3, 6)
+        board[0]
+      elsif col_match?(1, 4, 7)
+        board[1]
+      elsif col_match?(2, 5, 8)
+        board[2]
+      end
+    end
 
+    def col_match?(x, y, z)
+      if board[x] && board[y] && board[z]
+        board[x] == board[y] && board[y] == board[z]
+      end
+    end
 end

@@ -72,4 +72,10 @@ class Check1DBoardTest < Minitest::Test
     assert_equal "There is no winner", @check_board.message
   end
 
+  def test_there_is_no_winner_for_partially_full_board
+    @check_board.board = ["O", "X", nil, "X", nil, "X", nil, "O", "X"]
+
+    assert_equal "There is no winner", @check_board.message
+  end
+
 end

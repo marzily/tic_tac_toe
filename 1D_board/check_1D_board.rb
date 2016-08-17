@@ -16,7 +16,7 @@ class Check1DBoard
   private
 
     def winner
-      find_by_row || find_by_col
+      find_by_row || find_by_col || find_by_diag
     end
 
     def find_by_row
@@ -48,4 +48,15 @@ class Check1DBoard
         board[x] == board[y] && board[y] == board[z]
       end
     end
+
+    def find_by_diag
+      if top_bottom_diag?
+        board[0]
+      end
+    end
+
+    def top_bottom_diag?
+      board[0] == board[4] && board[4] == board[8]
+    end
+
 end

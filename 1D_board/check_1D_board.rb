@@ -6,9 +6,11 @@ class Check1DBoard
   end
 
   def message
-    if winner == "O"
+    player = winner
+
+    if player == "O"
       "The winner is O"
-    elsif winner == "X"
+    elsif player == "X"
       "The winner is X"
     end
   end

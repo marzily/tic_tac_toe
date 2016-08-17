@@ -1,5 +1,4 @@
 gem 'minitest'
-gem 'byebug'
 require 'minitest/autorun'
 require 'minitest/pride'
 require './check_1D_board'
@@ -61,6 +60,16 @@ class Check1DBoardTest < Minitest::Test
     @check_board.board[6] = "O"
 
     assert_equal "The winner is O", @check_board.message
+  end
+
+  def test_there_is_no_winner_for_empty_board
+    assert_equal "There is no winner", @check_board.message
+  end
+
+  def test_there_is_no_winner_for_full_board
+    @check_board.board = ["O", "X", "O", "X", "O", "X", "X", "O", "X"]
+
+    assert_equal "There is no winner", @check_board.message
   end
 
 end

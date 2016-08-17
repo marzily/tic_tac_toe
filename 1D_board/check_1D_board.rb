@@ -12,6 +12,8 @@ class Check1DBoard
       "The winner is O"
     elsif player == "X"
       "The winner is X"
+    else
+      "There is no winner"
     end
   end
 
@@ -32,7 +34,8 @@ class Check1DBoard
     end
 
     def row_match?(x, y)
-      board[x..y].all? {|space| space == "O" || space == "X" }
+      board[x..y].all? {|space| space == "O" } ||
+      board[x..y].all? {|space| space == "X" }
     end
 
     def find_by_col
